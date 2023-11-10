@@ -1,0 +1,47 @@
+{% extends layout.html %}
+
+{% block title %} Edit Profile {% endblock %}
+
+{% block content %}
+{% extends header.html %}
+<form method="post" action="http://localhost:8080/{{ $action }}">
+<div class="mainProfile">
+  <div class="editProfile">
+    <label>Изменить имя:
+      <input value="{{$user['username']}}" type="text" name="username" placeholder="имя пользователя" required>
+    </label>
+    <br>
+    <label>Изменить email:
+      <input value='{{$user["email"]}}' type="text" name="email" placeholder="email" required>
+    </label>
+    <br>
+    <label>Введите старый пароль:
+      <div>
+        <input class="password_input" type="password" name="oldPassword" placeholder="старый пароль">
+      </div>
+    </label>
+    <br>
+    <label>Введите новый пароль:
+      <div>
+        <input class="new_password_input" type="password" name="newPassword" placeholder="новый пароль">
+      </div>
+    </label>
+    <label>Введите пароль еще раз:
+      <div>
+        <input class="re_password_input" type="password" name="rePassword"
+               placeholder="введите новый пароль еще раз">
+      </div>
+    </label>
+    <br>
+    <br>
+    <div class="edit">
+      <input value="Изменить" type="submit" name="изменить">
+    </div>
+    <div class="exit editExit">
+      <a href="http://localhost:8080/{{ $profile }}"><i class="fa fa-reply fa-1x"></i>  Назад</a>
+    </div>
+  </div>
+</div>
+</form>
+{% extends footer.html %}
+{% endblock %}
